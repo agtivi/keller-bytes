@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Bodoni_Moda } from "next/font/google";
+import { Hamburger } from "./components/self/Hamburger"
 import "./globals.css";
 
 const bodoniModa = Bodoni_Moda({
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${bodoniModa.variable} antialiased`}
       >
+        <Hamburger/>
         {children}
       </body>
     </html>

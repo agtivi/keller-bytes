@@ -1,7 +1,7 @@
 'use client'
 import Image from "next/image";
-import SplitText from "../res/SplitText";
-import SplashCursor from '../res/SplashCursor';
+import SplitText from "../components/reactbits/SplitText";
+import TronBackground from "../components/self/Tron";
 import { useRef } from 'react'
 
 const handleAnimationComplete = () => {
@@ -16,10 +16,11 @@ export default function Home() {
 
   return (
     <div className="grid min-h-screen font-[family-name:var(--font-geist-sans)]">
+      
       <div className="text-center content-center sm:items-start h-176 text-4xl font-bodoni-moda">
         <SplitText
           text="Welcome to KellerBytes"
-          className="text-4xl font-bodoni-moda text-center h-12"
+          className="text-4xl font-bodoni-moda text-center h-12 z-20"
           delay={80}
           duration={1}
           ease="power3.out"
