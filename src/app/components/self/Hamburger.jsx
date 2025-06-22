@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from "react";
+import { HamburgerList } from "./HamburgerList";
 
 export const Hamburger = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,21 +12,17 @@ export const Hamburger = () => {
   return (
     <>
       <div
-        className={`fixed top-0 left-0 h-screen w-80 transition-transform duration-500 bg-orange-300/65 backdrop-blur z-40 ${
+        className={`fixed top-0 left-0 h-screen w-80 transition-transform duration-500 bg-white/45 backdrop-blur z-40 ${
           isOpen ? 'translate-x-0' : '-translate-x-80'
         }`}
       >
         <div className="pt-15 pl-6">
-          <ul className="space-y-2 list-none">
-            <li className="text-black">Item 1</li>
-            <li className="text-black">Item 2</li>
-            <li className="text-black">Item 3</li>
-          </ul>
+          <HamburgerList/>
         </div>
       </div>
       <button
         onClick={handleClick}
-        className="fixed top-4 left-4 z-50 flex flex-col justify-center items-center"
+        className={`fixed top-4 left-4 z-50 flex flex-col bg-gray-400/50 rounded w-7 h-6 justify-center items-center`}
       >
         <span
           className={`bg-gray-700 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${
