@@ -6,7 +6,9 @@ export const HamburgerList = () => {
             <li className="text-black">
                 <Link href="/home">Home</Link>
             </li>
-            <li className="text-black">Item 2</li>
+            <li className="text-black">
+                <Link href="/gravity">Gravity</Link>
+            </li>
             <li className="text-black">Item 3</li>
         </ul>
     );

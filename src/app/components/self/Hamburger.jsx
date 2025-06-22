@@ -22,7 +22,7 @@ export const Hamburger = () => {
       </div>
       <button
         onClick={handleClick}
-        className={`fixed top-4 left-4 z-50 flex flex-col bg-gray-400/50 rounded w-7 h-6 justify-center items-center`}
+        className={`fixed top-4 left-4 z-50 flex flex-col bg-gray-400/50 rounded w-7 h-6.5 justify-center items-center`}
       >
         <span
           className={`bg-gray-700 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${
