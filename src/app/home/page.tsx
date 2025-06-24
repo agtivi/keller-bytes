@@ -18,7 +18,11 @@ export default function Home() {
 
   useEffect(() => {
       document.body.classList.add('overflow-hidden');
-  });
+
+      return () => {
+        document.body.classList.remove('overflow-hidden');
+      };
+  }, []);
 
   return (
     <div className="grid min-h-screen font-[family-name:var(--font-geist-sans)]">

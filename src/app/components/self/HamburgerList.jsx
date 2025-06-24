@@ -1,15 +1,18 @@
 import Link from 'next/link'
 
-export const HamburgerList = () => {
+export const HamburgerList = ({setIsOpen}) => {
+    const handleClick = () =>{
+        setIsOpen()
+    }
     return (
         <ul className="space-y-2 list-none">
             <li className="text-black">
-                <Link href="/home">Home</Link>
+                <Link href="/home" onClick={handleClick}>Home</Link>
             </li>
             <li className="text-black">
-                <Link href="/gravity">Gravity</Link>
+                <Link href="/gravity" onClick={handleClick}>Gravity</Link>
             </li>
-            <li className="text-black">Item 3</li>
+            <li className="text-black" onClick={handleClick}>Item 3</li>
         </ul>
     );
 };

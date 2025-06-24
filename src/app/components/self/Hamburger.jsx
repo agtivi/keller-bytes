@@ -1,11 +1,14 @@
 'use client'
-import React, { useState } from "react";
+import React, { useState, unstable_ViewTransition as ViewTransition } from "react";
 import { HamburgerList } from "./HamburgerList";
 
 export const Hamburger = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
+    <div className="">
+      hi
+    </div>
     setIsOpen(!isOpen);
   };
 
@@ -17,7 +20,7 @@ export const Hamburger = () => {
         }`}
       >
         <div className="pt-15 pl-6">
-          <HamburgerList/>
+          <HamburgerList setIsOpen={() => setIsOpen()}/>
         </div>
       </div>
       <button

@@ -26,6 +26,16 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.code {
+  background: #1a1a24;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  padding-left: 2.5%;
+  border: 2px solid #151e47;
+}
+
 .tron-segment {
   z-index: 0;
   position: absolute;
