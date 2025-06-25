@@ -59,7 +59,7 @@ function Box(props: ThreeElements['mesh']) {
 export default function BoxScene() {
   return (
     <div className="grid grid-cols-2 content-center">
-      <code className="code overflow-auto max-h-[50vh]">
+      <code className="code">
         <pre>
           {codeString}
         </pre>
@@ -108,8 +108,3 @@ function Box(props: ThreeElements['mesh']) {
     </mesh>
   );
 }
-
-
-      <code className="code w-full">
-        
-      </code>

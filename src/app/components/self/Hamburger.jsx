@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, unstable_ViewTransition as ViewTransition } from "react";
+import React, { useState} from "react";
 import { HamburgerList } from "./HamburgerList";
 
 export const Hamburger = () => {

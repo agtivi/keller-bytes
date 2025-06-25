@@ -3,9 +3,10 @@ import Link from "next/link";
 import InitialCanvas from "./initialCanvas";
 import {  useEffect, useRef, useState } from 'react';
 import BoxScene from "./initialThree";
-
-import FallingText from '../components/reactbits/FallingText';
-  
+import FallingText from "../components/reactbits/FallingText";
+import FallingCircle from "./FallingCircle";
+import AcceleratingCircle from "./AcceleratingCircle"
+import AcceleratingCircleCol from "./AcceleratingCircleCol"
 
 export default function Gravity(){
     let canvasRef = useRef<HTMLCanvasElement>(null);
@@ -73,6 +74,15 @@ export default function Gravity(){
             </div>
             <div>
                 <BoxScene/>
+            </div>
+            <div>
+                <FallingCircle/>
+            </div>
+            <div>
+                <AcceleratingCircle/>
+            </div>
+            <div>
+                <AcceleratingCircleCol/>
             </div>
         </div>
     )
