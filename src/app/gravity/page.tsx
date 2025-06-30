@@ -7,6 +7,7 @@ import FallingText from "../components/reactbits/FallingText";
 import FallingCircle from "./FallingCircle";
 import AcceleratingCircle from "./AcceleratingCircle"
 import AcceleratingCircleCol from "./AcceleratingCircleCol"
+import AcceleratingCircleColTwo from "./AcceleratingCircleColTwo";
 
 export default function Gravity(){
     let canvasRef = useRef<HTMLCanvasElement>(null);
@@ -43,10 +44,21 @@ export default function Gravity(){
                 </div>
             }
             <div className="h-[30vh] pt-30 content-center text-xl">
-                For this page I'm gonna follow a video where the youtuber <em>kavan</em> simulates gravity in C++. Being the newbie I am, I'll try to do the same on here utilizing
-                Next.js.
+                For this page I'm gonna follow a video where the youtuber <em>kavan</em> simulates gravity in C++. I'll try to do the same on here utilizing
+                Next.js and React Three Fiber.
                 <br/><Link href="https://www.youtube.com/watch?v=_YbGWoUaZg0&ab_channel=kavan" className="text-blue-400 underline"> Here's the link to his video</Link>
             </div>
+            <div>
+                <AcceleratingCircleColTwo/>
+            </div>
+        </div>
+    )
+}
+
+
+function Unused(){
+    return(
+        <div>
             <div>
                 The first thing he does is creates a new window to display his simulations, so I'll try to do the same. Kavan utilizes OpenGL to run simulations, but since
                 I'm trying to run everything on this website, I went and found out that there's also WebGL which hopefully does the same thing!{" "}
@@ -55,7 +67,7 @@ export default function Gravity(){
                 the {"<canvas>"} component!
             </div>
             <div>
-                <InitialCanvas canvasRef={canvasRef}/>
+                {/* <InitialCanvas canvasRef={canvasRef}/> */}
             </div>
             <br/><br/><br/><br/>
             <div>
