@@ -15,8 +15,8 @@ export const Hamburger = () => {
   return (
     <>
       <div
-        className={`fixed top-0 left-0 h-screen w-80 transition-transform duration-500 bg-white/45 backdrop-blur z-40 ${
-          isOpen ? 'translate-x-0' : '-translate-x-80'
+        className={`fixed top-0 left-0 h-screen w-[16vw] transition-transform duration-500 bg-white/45 backdrop-blur z-40 ${
+          isOpen ? 'translate-x-0' : '-translate-x-[16vw]'
         }`}
       >
         <div className="pt-15 pl-6">

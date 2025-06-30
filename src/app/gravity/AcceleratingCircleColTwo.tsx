@@ -36,7 +36,7 @@ export default function AcceleratingCircleColTwo(){
                                 intensity={Math.PI}
                             />
                             <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
-                            <Sphere position={[0, 5, 0]} />
+                            <Circle position={[0, 5, 0]} />
                         </Canvas>
                     }
                 </div>
@@ -46,7 +46,7 @@ export default function AcceleratingCircleColTwo(){
     )
 }
 
-function Sphere(props: ThreeElements['mesh']) {
+function Circle(props: ThreeElements['mesh']) {
   const mesh = useRef<THREE.Mesh>(null!);
 
   // velocity needs to persist between frames → useRef, not let
@@ -68,7 +68,7 @@ function Sphere(props: ThreeElements['mesh']) {
   });
 
   return (
-    <mesh ref={mesh} {...props} scale={0.2}>
+    <mesh ref={mesh} {...props} scale={0.5}>
       <sphereGeometry args={[1, 32, 32]} />
       <meshStandardMaterial color="#2f74c0" />
     </mesh>
