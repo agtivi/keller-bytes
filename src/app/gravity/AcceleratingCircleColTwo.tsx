@@ -2,7 +2,6 @@
 import * as THREE from 'three';
 import React, { useRef, useState } from 'react';
 import { Canvas, useFrame, ThreeElements } from '@react-three/fiber';
-import { float } from 'three/tsl';
 
 
 export default function AcceleratingCircleColTwo(){
@@ -11,14 +10,13 @@ export default function AcceleratingCircleColTwo(){
 
     return(
         <div className="">
-            <div className="">
-                <br/> <br/>
+            <div className="text-xl">
                 With the scene set up using React Three Fiber, we can go ahead and start trying to replicate what kavan does in his video.
-                First he just does a simple vector with a circle falling down the screen. So I'll just update the position of a sphere using
-                a provided delta variable from R3F.
+                First he just does a simple accelerating vector with a sphere falling down the screen. So I'll just update the position of 
+                a sphere using a provided delta variable from R3F.
                 <br/>
             </div>
-            <div className="pt-10 pb-20 grid grid-cols-2 h-150">
+            <div className="mt-[10vh] grid grid-cols-2 gap-[5vw] h-[50vh]">
                 <div className="flex justify-center items-center">
                     <button className="bg-blue-500 h-[5vh] rounded pl-1 pr-1 mb-3" onClick={() => setIsOn(!isOn)}>
                         Click Here to run
@@ -47,30 +45,38 @@ export default function AcceleratingCircleColTwo(){
 }
 
 function Circle(props: ThreeElements['mesh']) {
-  const mesh = useRef<THREE.Mesh>(null!);
+    const mesh = useRef<THREE.Mesh>(null!);
 
-  // velocity needs to persist between frames → useRef, not let
-  const velocity = useRef(0);          // world‑units / second
-  const g = -9.81;                     // acceleration (m s‑2)
-  const floorY = -2;                   // “ground” height
-  const restitution = 0.7;             // 0 = no bounce, 1 = perfect
 
-  useFrame(({ clock }, delta) => {
-    // delta is seconds since last frame
-    velocity.current += g * delta;                       // v = v₀ + a·dt
-    mesh.current.position.y += velocity.current * delta; // y = y₀ + v·dt
+    // velocity needs to persist between frames -> useRef, not let
+    const velocity = useRef([Math.random() < 0.5 ? Math.random() * -3 : Math.random()*3,0]);          // world‑units / second
+    const g = -9.81;                     // acceleration (m/s ^2)
+    const floorY = -2;                   // “ground” height
+    const wallX = 4;
+    const restitution = 0.7;             // 0 = no bounce, 1 = perfect
 
-    // collision with ground
-    if (mesh.current.position.y < floorY) {
-      mesh.current.position.y = floorY;
-      velocity.current = -velocity.current * restitution;
-    }
-  });
+    useFrame(({ clock }, delta) => {
+        // delta is seconds since last frame
+        Math.abs(velocity.current[0]) <= 0.02 ? velocity.current[0] = 0 : velocity.current[0] *= 0.995;                    // v_x = v_x0 + a_x*dt
+        velocity.current[1] += g * delta;                       // v_y = v_y0 + a_y*dt
+        mesh.current.position.x += velocity.current[0] * delta; // x = x_0 + v*dt
+        mesh.current.position.y += velocity.current[1] * delta; // y = y_0 + v*dt
 
-  return (
-    <mesh ref={mesh} {...props} scale={0.5}>
-      <sphereGeometry args={[1, 32, 32]} />
-      <meshStandardMaterial color="#2f74c0" />
-    </mesh>
-  );
+        // collision with ground
+        if (mesh.current.position.y < floorY) {
+            mesh.current.position.y = floorY;
+            velocity.current[1] = -velocity.current[1] * restitution;
+        }
+        if (mesh.current.position.x < -wallX || mesh.current.position.x > wallX){
+            mesh.current.position.x = Math.sign(mesh.current.position.x) * wallX;
+            velocity.current[0] = -velocity.current[0];
+        }
+    });
+
+    return (
+        <mesh ref={mesh} {...props} scale={0.5}>
+            <sphereGeometry args={[1, 32]} />
+            <meshStandardMaterial color="#2f74c0" />
+        </mesh>
+    );
 }

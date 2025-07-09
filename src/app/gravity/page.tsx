@@ -8,6 +8,7 @@ import FallingCircle from "./FallingCircle";
 import AcceleratingCircle from "./AcceleratingCircle"
 import AcceleratingCircleCol from "./AcceleratingCircleCol"
 import AcceleratingCircleColTwo from "./AcceleratingCircleColTwo";
+import Orbit from "./Orbit";
 
 export default function Gravity(){
     let canvasRef = useRef<HTMLCanvasElement>(null);
@@ -15,8 +16,15 @@ export default function Gravity(){
     const [isDisappearing, setDisappearing] = useState(false);
 
     useEffect(() => {
+        document.body.classList.add('overflow-hidden');
+        window.scrollTo({
+            top:1,
+            left:1,
+        });
+        
         const goneTimeout = setTimeout(() => {
             setFinished(true);
+            document.body.classList.remove('overflow-hidden');
         }, 5000)
         const fadeTimeout = setTimeout(() => {
             setDisappearing(true);
@@ -43,13 +51,19 @@ export default function Gravity(){
                     </div>
                 </div>
             }
-            <div className="h-[30vh] pt-30 content-center text-xl">
-                For this page I'm gonna follow a video where the youtuber <em>kavan</em> simulates gravity in C++. I'll try to do the same on here utilizing
-                Next.js and React Three Fiber.
+            <div className="text-center pt-[5vh] text-8xl font-bodoni-moda">
+                Gravity
+            </div>
+            <div className="h-[30vh] content-center text-xl">
+                For this page I'm taking inspiration from a video where the youtuber <em>kavan</em> simulates gravity in C++. I'll try to do the same on here utilizing
+                React Three Fiber.
                 <br/><Link href="https://www.youtube.com/watch?v=_YbGWoUaZg0&ab_channel=kavan" className="text-blue-400 underline"> Here's the link to his video</Link>
             </div>
             <div>
                 <AcceleratingCircleColTwo/>
+            </div>
+            <div>
+                <Orbit/>
             </div>
         </div>
     )
@@ -95,6 +109,9 @@ function Unused(){
             </div>
             <div>
                 <AcceleratingCircleCol/>
+            </div>
+            <div>
+                <Orbit/>
             </div>
         </div>
     )
