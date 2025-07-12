@@ -10,10 +10,13 @@ export const HamburgerList = ({setIsOpen}) => {
                 <Link href="/home" onClick={handleClick}>Home</Link>
             </li>
             <li className="text-black">
+                <Link href="/random-verse" onClick={handleClick}>Random Verse</Link>
+            </li>
+            <li className="text-black">
                 <Link href="/gravity" onClick={handleClick}>Gravity</Link>
             </li>
             <li className="text-black">
-                <Link href="/random-verse" onClick={handleClick}>Random Verse</Link>
+                <Link href="/gravity-game" onClick={handleClick}>Gravity Game</Link>
             </li>
         </ul>
     );

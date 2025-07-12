@@ -1,6 +1,6 @@
 'use client';
 import * as THREE from 'three';
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { Canvas, useFrame, ThreeElements } from '@react-three/fiber';
 
 const codeString = `'use client';
@@ -63,7 +63,7 @@ export default function FallingCircle(){
             <div className="">
                 <br/> <br/>
                 With the scene set up using React Three Fiber, we can go ahead and start trying to replicate what kavan does in his video.
-                First he just does a simple vector with a circle falling down the screen. So I'll just update the position of a sphere using
+                First he just does a simple vector with a circle falling down the screen. So I&apos;ll just update the position of a sphere using
                 a provided delta variable from R3F.
                 <br/>
             </div>

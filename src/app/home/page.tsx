@@ -1,9 +1,7 @@
 'use client'
-import Image from "next/image";
 import SplitText from "../components/reactbits/SplitText";
-import TronBackground from "../components/self/Tron";
 import Stack from "../components/reactbits/Stack";
-import { useRef, useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Link from "next/link";
 
 const images = [
@@ -15,7 +13,6 @@ const images = [
 
 
 export default function Home() {
-  const containerRef = useRef(null)
 
   const [titleFullHeight, setTitleFullHeight] = useState(false);
 
@@ -55,16 +52,16 @@ export default function Home() {
             style={{ paddingTop: titleFullHeight ? '0px' : '100vh' }}
       >
         <div className="text-center content-center">
-          <div className="bg-gray-600 rounded-xl transition-all ml-20 mr-10 text-[18px] hover:text-xl hover:ml-15 hover:mr-0">
+          <div className="bg-gray-600 rounded-xl h-[23vh] transition-all ml-20 mr-10 text-[18px] hover:h-[26vh] hover:text-[21px] hover:ml-15 hover:mr-0">
             <div className="pt-3 pr-3 pl-3 pb-3">
-              Hey there, my name's Anthony Keller and I'm a 2025 graduate from The Ohio State University with a B.S. in Computer Science and Engineering.
+              Hey there, my name&apos;s Anthony Keller and I&apos;m a 2025 graduate from The Ohio State University with a B.S. in Computer Science and Engineering.
               Here on the right, you can see a few pictures of me and some of me and my family!
               <br/>
               <br/>
               I made this website to gain some experience with web development and some smaller projects, so feel free to explore and see any cool features
               I might have added!
               <br/>
-              <Link className="text-2xl text-center" href="../testimony">
+              <Link className="text-center" href="../testimony">
                 And may God be with you ✟
               </Link>
             </div>
@@ -82,7 +79,7 @@ export default function Home() {
             <Stack
               randomRotation={false}
               sensitivity={180}
-              sendToBackOnClick={true}
+              sendToBackOnClick={false}
               cardDimensions={{ width: 375, height: 375 }}
               cardsData={images}
             />

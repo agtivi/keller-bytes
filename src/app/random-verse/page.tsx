@@ -1,11 +1,10 @@
 'use client';
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 interface Verse {
     id: string;
     verseCount: string;
     content: string;
     reference: string;
-    [key: string]: any;
 }
 
 export default function RandomVerse() {

@@ -71,12 +71,15 @@ const FallingText: React.FC<FallingTextProps> = ({
   useEffect(() => {
     if (!effectStarted) return;
 
+    const container = containerRef.current;
+    const canvasContainer = canvasContainerRef.current;
+
     const { Engine, Render, World, Bodies, Runner, Mouse, MouseConstraint } =
       Matter;
 
-    if (!containerRef.current || !canvasContainerRef.current) return;
+    if (!container || !canvasContainer) return;
 
-    const containerRect = containerRef.current.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
     const width = containerRect.width;
     const height = containerRect.height;
 
@@ -86,7 +89,7 @@ const FallingText: React.FC<FallingTextProps> = ({
     engine.world.gravity.y = gravity;
 
     const render = Render.create({
-      element: canvasContainerRef.current,
+      element: canvasContainer,
       engine,
       options: {
         width,
@@ -163,7 +166,7 @@ const FallingText: React.FC<FallingTextProps> = ({
       elem.style.transform = "none";
     });
 
-    const mouse = Mouse.create(containerRef.current);
+    const mouse = Mouse.create(container);
     const mouseConstraint = MouseConstraint.create(engine, {
       mouse,
       constraint: {
@@ -201,8 +204,8 @@ const FallingText: React.FC<FallingTextProps> = ({
     return () => {
       Render.stop(render);
       Runner.stop(runner);
-      if (render.canvas && canvasContainerRef.current) {
-        canvasContainerRef.current.removeChild(render.canvas);
+      if (render.canvas && canvasContainer) {
+        canvasContainer.removeChild(render.canvas);
       }
       World.clear(engine.world, false);
       Engine.clear(engine);

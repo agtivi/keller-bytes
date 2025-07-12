@@ -9,14 +9,14 @@ export default function Orbit() {
   const [isOn, setIsOn] = useState(false);
   const [planets, setPlanets] = useState<PlanetInput[]>([
     {
-      mass: 200,
-      position: new THREE.Vector3(0, 0, 0),
+      mass: 350,
+      position: new THREE.Vector3(0, -1, 0),
       velocity: new THREE.Vector3(0, 0, 0),
     },
     {
       mass: 1,
-      position: new THREE.Vector3(-2, -1, 2),
-      velocity: new THREE.Vector3(2, 0, 0),
+      position: new THREE.Vector3(0, -1, 2),
+      velocity: new THREE.Vector3(3, 0, 0),
     },
   ]);
 
@@ -69,7 +69,7 @@ export default function Orbit() {
   return (
     <div>
       <div>
-        Next we'll make different spheres at different spots in the scene, and use Gravity to simulate their orbits around one another.
+        Next we&apos;ll make different spheres at different spots in the scene, and use Gravity to simulate their orbits around one another.
       </div>
       <div className="h-[50vh] mt-[10vh] mb-[10vh] grid grid-cols-[5vw_30vw_43vw] gap-[5vw]">
         <div className="flex justify-center items-center">

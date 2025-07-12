@@ -12,7 +12,7 @@ export default function AcceleratingCircleColTwo(){
         <div className="">
             <div className="text-xl">
                 With the scene set up using React Three Fiber, we can go ahead and start trying to replicate what kavan does in his video.
-                First he just does a simple accelerating vector with a sphere falling down the screen. So I'll just update the position of 
+                First he just does a simple accelerating vector with a sphere falling down the screen. So I&apos;ll just update the position of 
                 a sphere using a provided delta variable from R3F.
                 <br/>
             </div>
@@ -55,9 +55,13 @@ function Circle(props: ThreeElements['mesh']) {
     const wallX = 4;
     const restitution = 0.7;             // 0 = no bounce, 1 = perfect
 
-    useFrame(({ clock }, delta) => {
+    useFrame((_, delta) => {
         // delta is seconds since last frame
-        Math.abs(velocity.current[0]) <= 0.02 ? velocity.current[0] = 0 : velocity.current[0] *= 0.995;                    // v_x = v_x0 + a_x*dt
+        if(Math.abs(velocity.current[0]) <= 0.02 ) {
+            velocity.current[0] = 0;
+        } else {                                                // v_x = v_x0 + a_x*dt
+            velocity.current[0] *= 0.995;                    
+        }
         velocity.current[1] += g * delta;                       // v_y = v_y0 + a_y*dt
         mesh.current.position.x += velocity.current[0] * delta; // x = x_0 + v*dt
         mesh.current.position.y += velocity.current[1] * delta; // y = y_0 + v*dt
