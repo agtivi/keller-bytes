@@ -13,7 +13,7 @@ export default function Testimony() {
 
     return (
         <div className="h-screen flex items-center justify-center text-center px-4 text-xl transition-all">
-            <div className={`opacity-0 ${isNormal ? "max-w-4xl" : "flex " } items-center justify-center `}>
+            <div className={`${isNormal ? "max-w-4xl" : "flex " } items-center justify-center `}>
                 <div className={`transition-all duration-500 ${isNormal ? "opacity-100" : "opacity-0"}`}>
                     Hey there, I figured what better a place to share my testimony than on here.
                     <br/><br/>
